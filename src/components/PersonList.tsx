@@ -1,4 +1,5 @@
 import { Person } from "../types";
+import { PersonCard } from "./PersonCard";
 
 type Props = {
   persons: Person[];
@@ -8,7 +9,7 @@ export function PersonList(props: Props) {
     <div>
       {props.persons.map((p) => {
         return <div key={p.name}>
-					<p>{p.name} (office {p.office})</p>
+					<PersonCard person={p} />
 				</div>
       })}
     </div>
