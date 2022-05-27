@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { PersonList } from "./components/PersonList";
+import { Toolbar } from "./components/Toolbar";
 import { Person } from "./types";
 
 const App = () => {
   const [persons, setPersons] = useState<Person[]>([]);
+	const [personFilter, setPersonFilter] = useState<string>("")
 
   useEffect(() => {
     async function getData(): Promise<Person[]> {
@@ -21,13 +23,19 @@ const App = () => {
 		getData().then(data => setPersons(data));
   }, []);
 
+	const filteredPersons = 
+		personFilter === "" ? persons : persons.filter(p => {
+			return p.name.includes(personFilter) || (p.office !== null && p.office.includes(personFilter))
+		})
+
   return (
     <div>
       <header>
         <h2>The fellowship of the tretton37</h2>
       </header>
       <main>
-        <PersonList persons={persons} />
+				<Toolbar setFilter={(val) => setPersonFilter(val)} />
+        <PersonList persons={filteredPersons} />
       </main>
     </div>
   );

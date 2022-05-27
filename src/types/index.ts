@@ -1,15 +1,17 @@
+type Nullable<T> = T | null
+
 export interface Person {
   name: string;
   email: string;
   phoneNumber: string;
-  office: string;
+  office: Nullable<string>;
   manager: string;
   orgUnit: string;
   mainText: string;
-  gitHub?: string;
-  twitter?: string;
-  stackOverflow?: string;
-  linkedIn?: string;
+  gitHub: Nullable<string>;
+  twitter: Nullable<string>;
+  stackOverflow: Nullable<string>;
+  linkedIn: Nullable<string>;
   imagePortraitUrl: string;
   imageWallOfLeetUrl: string;
   highlighted: boolean;
