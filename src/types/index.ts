@@ -17,3 +17,13 @@ export interface Person {
   highlighted: boolean;
   published: boolean;
 }
+
+export interface Filter {
+	offices: string[];
+	name_str: string;
+}
+
+export interface CheckedState {
+	item: string;
+	checked: boolean;
+}
