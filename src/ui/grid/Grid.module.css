@@ -1,0 +1,34 @@
+.pane {
+  display: grid;
+  grid-template-columns: repeat(4, 16em);
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  max-width: 100%;
+  margin: auto;
+}
+
+@media (max-width: 31em) {
+  .pane {
+    display: block;
+    padding: 0 1em;
+    margin: auto;
+  }
+}
+
+@media (min-width: 31em) and (max-width: 50em) {
+  .pane {
+    display: grid;
+    grid-template-columns: repeat(2, 15em);
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+  }
+}
+
+@media (min-width: 50em) and (max-width: 71em) {
+  .pane {
+    display: grid;
+    grid-template-columns: repeat(3, 16em);
+    grid-column-gap: 1em;
+    grid-row-gap: 1em;
+  }
+}

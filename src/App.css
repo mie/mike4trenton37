@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+.container {
+  max-width: 70em;
+  margin: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.toolbar {
+  background-color: #eee;
+  padding: 1em;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+	margin-bottom: 1em;
 }
 
-.App-link {
-  color: #61dafb;
+.input-toolbar {
+  width: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.input-toolbar > input[type="text"] {
+  display: block;
+  margin: auto;
+  font-size: 2em;
+  border-color: #aaa;
+  border-width: 1px;
+  border-radius: 0.2em;
+  padding: 0.2em 0.4em;
+  width: 90%;
+}
+
+.cb-toolbar {
+	max-width: 20em;
+}
+
+.cb-toolbar > p {
+	margin: 0 0 0.8em 0;
+	font-size: 1.2em;
+	font-weight: bold;
+}
+
+.cb-toolbar-inner {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cb-toolbar-item {
+	margin-right: 0.4em;
+	margin-bottom: 0.4em;
+}
+
+@media (max-width: 50em) {
+  .container {
+    max-width: 100%;
   }
-  to {
-    transform: rotate(360deg);
+	.toolbar {
+		flex-direction: column;
+	}
+	.cb-toolbar, .input-toolbar {
+		width: 100%;
+		max-width: 100%;
+		padding-bottom: 1em;	
+	}
+	.input-toolbar > input[type="text"] {
+		font-size: 1.2em;
+		padding: 0.2em 0.4em;
+	}
+	.cb-toolbar > p {
+		font-size: 1.1em;
+	}
+}
+
+@media (min-width: 31em) and (max-width: 50em) {
+  .container {
+    max-width: 31em;
   }
+}
+
+@media (min-width: 50em) and (max-width: 71em) {
+  .container {
+    max-width: 50em;
+  }
+	.cb-toolbar {
+		max-width: 20em;
+	}
+	.input-toolbar {
+		width: 100%;
+		max-width: 100%;
+		padding-bottom: 1em;	
+	}
+	.input-toolbar > input[type="text"] {
+		font-size: 1.4em;
+		padding: 0.2em 0.4em;
+	}
 }

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { PersonList } from "./components/PersonList";
 import { Toolbar } from "./components/Toolbar";
 import { Filter, Person } from "./types";
+import "./App.css"
 
 const App = () => {
   const [persons, setPersons] = useState<Person[]>([]);
@@ -55,7 +56,7 @@ const App = () => {
   }, [persons, personFilter]);
 
   return (
-    <div>
+    <div className="container">
       <header>
         <h2>The fellowship of the tretton37</h2>
       </header>

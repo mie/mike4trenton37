@@ -1,6 +1,7 @@
 type Nullable<T> = T | null
 
 export interface Person {
+	[key: string]: string | Nullable<string> | boolean;
   name: string;
   email: string;
   phoneNumber: string;
@@ -27,3 +28,5 @@ export interface CheckedState {
 	item: string;
 	checked: boolean;
 }
+
+ 

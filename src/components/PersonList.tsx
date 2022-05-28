@@ -1,17 +1,20 @@
 import { Person } from "../types";
-import { PersonCard } from "./PersonCard";
+import { Card } from "../ui/card/Card";
+import { Grid } from "../ui/grid/Grid";
 
 type Props = {
   persons: Person[];
 };
 export function PersonList(props: Props) {
   return (
-    <div>
+    <Grid>
       {props.persons.map((p) => {
-        return <div key={p.name}>
-					<PersonCard person={p} />
-				</div>
+        return (
+          <div key={p.name}>
+            <Card person={p} />
+          </div>
+        );
       })}
-    </div>
+    </Grid>
   );
 }

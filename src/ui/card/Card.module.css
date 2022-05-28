@@ -1,4 +1,41 @@
 .card {
 	border: 0.1em solid #eee;
-	padding: 0.2em 1em;
+	padding: 0.8em;
+}
+
+.image {
+	max-width: 100%;
+	height: 20em;
+}
+
+.linkpane > a {
+	margin-right: 0.2em;
+}
+
+.personpane > span {
+ 	display: block;
+	font-weight: bold;
+}
+
+.personpane {
+	max-width: 66%;
+}
+
+.bottompane {
+	padding-top: 1.2em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+@media (max-width: 31em) {
+
+	.card {
+		margin-bottom: 0.8em;
+	}
+
+	.image {
+		height: 24em;
+	}
+
 }
