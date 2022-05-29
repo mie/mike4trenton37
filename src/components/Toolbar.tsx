@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { CheckedState, Filter } from "../types";
+import debounce from "../utils/debounce";
 
 type Props = {
   updateFilter: (filter: Filter) => void;
@@ -17,11 +18,13 @@ export function Toolbar(props: Props) {
   }, [props.cbList]);
 
   const updateFilterText = (val: string) => {
-    setFilterText(val);
-    props.updateFilter({
-      name_str: val,
-      offices: checked.filter((c) => c.checked).map((o) => o.item),
-    });
+		setFilterText(val);
+    debounce(() => {
+      props.updateFilter({
+        name_str: val,
+        offices: checked.filter((c) => c.checked).map((o) => o.item),
+      });
+    }, 500)();
   };
 
   const sortedOptions = useMemo(() => {
