@@ -32,7 +32,7 @@ export function PersonList(props: Props) {
         {shownPersons.map((p) => {
           return (
             <div key={p.name}>
-              <Card person={p} />
+              <Card person={p} data-testid="person-card" />
             </div>
           );
         })}

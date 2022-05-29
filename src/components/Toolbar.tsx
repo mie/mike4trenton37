@@ -49,6 +49,7 @@ export function Toolbar(props: Props) {
     <div className="toolbar">
       <div className="input-toolbar">
         <input
+					data-testid="user-input"
           type="text"
           value={filterText}
           placeholder="start typing a name to filter..."
@@ -62,11 +63,12 @@ export function Toolbar(props: Props) {
             {sortedOptions.map((ch) => (
               <div className="cb-toolbar-item" key={ch.item}>
                 <input
+									data-testid="user-cb"
                   type="checkbox"
                   checked={ch.checked}
                   onChange={(e) => updateFilterCb(ch.item, e.target.checked)}
                 />
-                <label>{ch.item}</label>
+                <label data-testid="office-list">{ch.item}</label>
               </div>
             ))}
           </div>
