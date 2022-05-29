@@ -1,10 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { PersonList } from "./components/PersonList";
 import { Toolbar } from "./components/Toolbar";
 import { Filter, Person } from "./types";
 import "./App.css"
+import useFilteredPersons from "./hooks/useFilteredPersons";
+import GetData from "./api/GetData";
 
-const App = () => {
+export const App = () => {
   const [persons, setPersons] = useState<Person[]>([]);
   const [cities, setCities] = useState<string[]>([]);
   const [personFilter, setPersonFilter] = useState<Filter>({
@@ -13,19 +15,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    async function getData(): Promise<Person[]> {
-      try {
-        const response = await fetch(
-          `http://${process.env.REACT_APP_SERVER}/data`
-        );
-        const body = await response.json();
-        return body as Person[];
-      } catch (err) {
-        console.log(err);
-        return [];
-      }
-    }
-    getData().then((data) => {
+    GetData.GetPersons().then((data) => {
       setPersons(data);
       let offices: string[] = [];
       data.forEach((p) => {
@@ -42,18 +32,7 @@ const App = () => {
     });
   }, []);
 
-  const filteredPersons: Person[] = useMemo(() => {
-    return persons.filter((p) => {
-      return (
-        p.office !== null &&
-				personFilter.offices !== [] &&
-        personFilter.offices.includes(p.office) &&
-        (personFilter.name_str === "" ||
-          (personFilter.name_str !== "" &&
-            p.name.toLocaleLowerCase().includes(personFilter.name_str)))
-      );
-    });
-  }, [persons, personFilter]);
+  const filteredPersons: Person[] = useFilteredPersons(persons, personFilter);
 
   return (
     <div className="container">
@@ -67,5 +46,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
