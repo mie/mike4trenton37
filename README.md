@@ -3,7 +3,7 @@
 
 A brief introduction to everyone within [1337](https://1337.life/) team.
 
-## A live version is available on [heroku](mike4tretton37.herokuapp.com/).
+## A live version is available on [heroku](http://mike4tretton37.herokuapp.com/).
 
 ## Brief intro
 
