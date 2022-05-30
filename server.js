@@ -10,7 +10,7 @@ app.use(favicon(__dirname + '/build/favicon.ico'));
 app.use(express.static(__dirname));
 app.use(express.static(path.join(__dirname, 'build')));
 
-const api_key = process.env.TRENTON37_API_KEY //new GetKey(filename).read_key()
+const api_key = process.env.TRETTON37_API_KEY //new GetKey(filename).read_key() -- for supplying a json file as an argument
 const cl = new DataClient()
 
 app.get("/data", (req, res) => {

@@ -3,7 +3,7 @@
 
 A brief introduction to everyone within [1337](https://1337.life/) team.
 
-## A live version is available on [heroku](mike4trenton37.herokuapp.com/).
+## A live version is available on [heroku](mike4tretton37.herokuapp.com/).
 
 ## Brief intro
 
@@ -23,6 +23,10 @@ The following stories are implemented:
 
 The rest of stories for me must have taken some time to dive into and research (accessibility tasks, CI/CD and other testing libraries). I definitely spent more time on the project than it was suggested, so I turned to the things I know better.
 
+I was a little bit confused with the server part but decided to implement what I think was better. This private api key is an entity that must only exist on the backend so I'm querying the original data source from my small proxy-handle. Adding something like process.env.API_KEY to query the original data source from the web app is not secure. I could have downloaded the dataset and served it statically but the api key was provided for a reason so I did what I did.
+
+Not going to lie I spent a lot more time on the project than was advised but I was trying to finish it during the weekend and at the end have the best version of it.
+
 ## Getting started
 
 First you need to obtain a valid API key to access the 1337's team resources which we are going to pull the data from.
@@ -30,8 +34,8 @@ First you need to obtain a valid API key to access the 1337's team resources whi
 Then you need to export the following ENV variables with the API key contents and the server address the frontend will pull the data from:
 
 ```
-$ export TRENTON37_API_KEY='api-key 1234abcd...' # API key omitting the leading 'Authorization: ' part
-$ export REACT_APP_SERVER=mike4trenton37.herokuapp.com # 
+$ export TRETTON37_API_KEY='api-key 1234abcd...' # API key omitting the leading 'Authorization: ' part
+$ export REACT_APP_SERVER=mike4tretton37.herokuapp.com # 
 ```
 
 ### Installing
@@ -39,8 +43,8 @@ $ export REACT_APP_SERVER=mike4trenton37.herokuapp.com #
 Clone the repository
 
 ```
-$ git clone git@github.com:mie/mike4trenton37.git
-$ cd mike4trenton37
+$ git clone git@github.com:mie/mike4tretton37.git
+$ cd mike4tretton37
 ```
 
 Install the dependencies:
